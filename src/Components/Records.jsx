@@ -1,4 +1,5 @@
-import React from 'react'
+import 'react-stacked-carousel/dist/index.css'
+import React, { StyleSheet, useState } from 'react'
 import bgImage from '../Assets/bg-records.svg'
 // import Target from '../Assets/target.svg'
 // import Mentor1 from '../Assets/mentor1.svg'
@@ -15,7 +16,61 @@ import mentor2 from '../Assets/mentor2.svg'
 import mentor3 from '../Assets/mentor3.svg'
 import mentor4 from '../Assets/mentor4.svg'
 
+//stackewd corouselk
+import { StackedCarousel } from 'react-stacked-carousel'
+
+// const companies = [
+//   {
+//     name: 'Anand Rao',
+//     designation: 'Software Engineer',
+//     company: company1,
+//     profile: mentor1,
+//   },
+//   {
+//     name: 'Siddhant Gambhir ',
+//     designation: 'Sr Specialist - Evaluation & Testing',
+//     company: company2,
+//     profile: mentor2,
+//   },
+//   {
+//     name: 'Rohan Nagarad',
+//     designation: 'Senior Software Engineer',
+//     company: company3,
+//     profile: mentor3,
+//   },
+//   {
+//     name: 'Aditya Naik',
+//     designation: 'UX/UI Design Consultant ',
+//     company: company4,
+//     profile: mentor4,
+//   },
+// ]
+
+// const settings = {
+//   infinite: true,
+//   slidesToShow: 1,
+//   slidesToScroll: 1,
+//   autoplay: true,
+//   autoplaySpeed: 5000,
+//   dots: false,
+//   arrows: false,
+//   fade: true,
+// }
+
+//temp
+
+// import company2 from '../Assets/company2.svg'
+// import company3 from '../Assets/company3.png'
+// import company4 from '../Assets/company4.svg'
+// import company5 from '../Assets/company5.svg'
+// import company6 from '../Assets/company6.svg'
+// import company7 from '../Assets/company7.svg'
+// import company8 from '../Assets/company8.svg'
+// import company9 from '../Assets/company5.svg'
+import '../Styles/CompaniesCarousel.scss'
+
 const companies = [
+  // Target,
   {
     name: 'Anand Rao',
     designation: 'Software Engineer',
@@ -34,26 +89,30 @@ const companies = [
     company: company3,
     profile: mentor3,
   },
-  {
-    name: 'Aditya Naik',
-    designation: 'UX/UI Design Consultant ',
-    company: company4,
-    profile: mentor4,
-  },
+  // {
+  //   name: 'Aditya Naik',
+  //   designation: 'UX/UI Design Consultant ',
+  //   company: company4,
+  //   // profile: mentor4,
+  // },
 ]
-
 const settings = {
   infinite: true,
   slidesToShow: 1,
   slidesToScroll: 1,
   autoplay: true,
-  autoplaySpeed: 5000,
+  autoplaySpeed: 3000,
   dots: false,
   arrows: false,
   fade: true,
 }
 
 const Records = () => {
+  const [card, setCard] = useState(null)
+  const onCardChange = (event) => {
+    console.log('Card', event)
+  }
+
   return (
     <div className='pt-14 record-top-wrap'>
       <span className='text-3xl font-bold pl-14 records-title'>
@@ -92,6 +151,29 @@ const Records = () => {
           Say hello to our mentors and educators
         </span>
         <div className='record px-14 py-20'>
+          {/* <Slider {...settings}>
+            {companies.map((item, index) => {
+              return (
+                <div
+                  className='h-[235px] w-[492px] bg-[#FFFFFF] rounded-xl p-4 record-wrap'
+                  key={index}
+                >
+                  <div className=' m-4'>
+                    <img src={item.profile} alt='' className='rounded-full' />
+                  </div>
+                  <div className='flex justify-center items-start flex-col pl-4'>
+                    <span className='text-xl font-semibold py-2'>
+                      {item.name}
+                    </span>
+                    <span>{item.designation}</span>
+                    <div>
+                      <img src={item.company} alt='' />
+                    </div>
+                  </div>
+                </div>
+              )
+            })}
+          </Slider> */}
           <Slider {...settings}>
             {companies.map((item, index) => {
               return (
